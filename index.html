@@ -2,1201 +2,215 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portafolio profesional de Manuel Alejandro Millán Aguilar — Director Creativo Senior y Diseñador Visual. Branding, dirección creativa, UX/UI, contenido digital y motion / IA.">
-<meta name="theme-color" content="#0a0a0a">
-<meta name="color-scheme" content="dark">
-<meta property="og:type" content="website">
-<meta property="og:title" content="estudiocreativo — Dirección Creativa & Diseño Visual">
-<meta property="og:description" content="Director Creativo Senior y Diseñador Visual. Branding, UX/UI, contenido digital y motion / IA.">
-<meta name="twitter:card" content="summary_large_image">
-<title>estudiocreativo — Manuel Alejandro Millán · Dirección Creativa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDUL Maturín | Plan de Desarrollo Urbano Local</title>
+<meta name="description" content="Sitio oficial del Plan de Desarrollo Urbano Local (PDUL) de Maturín, Venezuela. Maturín, una ciudad con propósito.">
+<link rel="icon" type="image/png" href="assets/logo-pdul.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0a0a0a;
-    --bg-card:#131313;
-    --bg-card-hover:#1a1a1a;
-    --line:#2a2a2a;
-    --text:#f5f5f5;
-    --text-dim:#9e9e9e;
-    --accent:#2EE6C5;
-    --font: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-    --page-texture: url('assets/asset-01-f4c898fa40f4.jpg');
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background-color:var(--bg);
-    background-image:
-      linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.6)),
-      var(--page-texture);
-    background-size:cover;
-    background-position:top center;
-    background-repeat:repeat-y;
-    color:var(--text);
-    font-family:var(--font);
-    line-height:1.5;
-    overflow-x:hidden;
-  }
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  ::selection{background:var(--accent); color:#0a0a0a;}
-
-  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
-
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--accent);
-    outline-offset:3px;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
-    html{scroll-behavior:auto;}
-  }
-
-  /* ---------- SCROLL PROGRESS ---------- */
-  .progress{
-    position:fixed; top:0; left:0; height:2px; width:0%;
-    background:var(--accent); z-index:200;
-    transition:width .1s linear;
-  }
-
-  /* ---------- HERO GLOW (mouse-follow, desktop only) ---------- */
-  .glow{
-    position:absolute; inset:0; pointer-events:none; z-index:0;
-    background:radial-gradient(500px circle at var(--gx,50%) var(--gy,20%), rgba(46,230,197,0.10), transparent 60%);
-    opacity:0; transition:opacity .4s ease;
-  }
-  .hero:hover .glow{opacity:1;}
-  .hero > .wrap{position:relative; z-index:1;}
-
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky; top:0; z-index:100;
-    background:rgba(10,10,10,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    display:flex; align-items:center; justify-content:space-between; gap:28px;
-    padding:20px 0;
-  }
-  .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; letter-spacing:-0.02em; min-width:0;}
-  .logo-mark{width:52px; height:40px; object-fit:contain; display:block; flex:0 0 auto;}
-  .logo-name{color:var(--text); white-space:nowrap; display:inline-flex; align-items:baseline; gap:0; font-weight:800;} .logo-word-accent{color:var(--accent);}
-  .logo-dot{color:var(--accent);}
-  nav{margin-left:auto;}
-  nav ul{list-style:none; display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:12px 28px; margin:0; padding:0;}
-  nav a{
-    font-size:0.85rem; font-weight:500; color:var(--text-dim);
-    position:relative; padding:4px 0;
-    transition:color .2s ease;
-  }
-  nav a:hover, nav a.active{color:var(--text);}
-  nav a.active::after{
-    content:''; position:absolute; bottom:-2px; left:0; right:0; height:2px;
-    background:var(--accent); border-radius:2px;
-  }
-  .nav-toggle{display:none; background:none; border:1px solid var(--line); border-radius:10px; color:var(--text); font-size:1.25rem; line-height:1; cursor:pointer; padding:9px 11px;}
-
-  @media (max-width:900px){
-    .nav-inner{gap:18px;}
-    nav ul{gap:10px 20px;}
-  }
-
-  @media (max-width:760px){
-    .nav-inner{padding:14px 0;}
-    .logo-mark{width:46px; height:36px;}
-    .logo-name{font-size:.98rem;}
-    nav{margin-left:0;}
-    nav ul{
-      position:absolute; top:100%; left:0; right:0;
-      background:rgba(10,10,10,0.98);
-      border-bottom:1px solid var(--line);
-      box-shadow:0 12px 24px -8px rgba(0,0,0,0.5);
-      flex-direction:column; align-items:stretch; gap:0;
-      padding:8px 24px 16px;
-      max-height:0; overflow:hidden;
-      opacity:0; pointer-events:none;
-      transition:max-height .3s ease, opacity .25s ease;
-    }
-    nav ul.open{max-height:340px; opacity:1; pointer-events:auto;}
-    nav li{border-bottom:1px solid var(--line); width:100%;}
-    nav li:last-child{border-bottom:0;}
-    nav a{display:block; padding:15px 0;}
-    .nav-toggle{display:block; flex:0 0 auto;}
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:120px 0 90px;
-    position:relative;
-  }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    color:var(--accent); font-weight:700; font-size:0.9rem;
-    margin-bottom:28px;
-    opacity:0; animation:rise .7s ease .1s forwards;
-  }
-  .eyebrow::before{
-    content:''; width:6px; height:6px; border-radius:50%; background:var(--accent);
-  }
-  h1.display{
-    font-size:clamp(2.6rem, 6.5vw, 5.2rem);
-    font-weight:800; letter-spacing:-0.03em; line-height:1.02;
-    max-width:15ch;
-    opacity:0; animation:rise .8s ease .22s forwards;
-  }
-  .hero-sub{
-    margin-top:28px; max-width:640px;
-    font-size:1.15rem; color:var(--text-dim); font-weight:400;
-    opacity:0; animation:rise .8s ease .38s forwards;
-    text-align:justify; text-justify:inter-word; hyphens:auto;
-  }
-  .hero-meta{
-    margin-top:44px; display:flex; flex-wrap:wrap; gap:14px 34px;
-    opacity:0; animation:rise .8s ease .5s forwards;
-  }
-  .hero-meta div{font-size:0.85rem; color:var(--text-dim);}
-  .hero-meta strong{display:block; color:var(--text); font-weight:600; font-size:0.95rem; margin-bottom:2px;}
-  @keyframes rise{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
-
-  /* ---------- SCROLL REVEAL (progressive enhancement — visible by default,
-     JS adds .reveal-init to arm the animation, then .in-view to play it.
-     If JS never runs, content stays visible — never depends on JS to show.) ---------- */
-  .reveal-init{
-    opacity:0; transform:translateY(24px);
-    transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
-  }
-  .reveal-init.in-view{opacity:1; transform:translateY(0);}
-  @media (prefers-reduced-motion: reduce){
-    .reveal-init{opacity:1; transform:none; transition:none;}
-  }
-
-  /* ---------- CARD TILT (subtle 3D, desktop pointer only) ---------- */
-  .grid{perspective:1400px;}
-  .card{
-    transform-style:preserve-3d;
-    transition:transform .35s cubic-bezier(.22,.61,.36,1), background .25s ease, border-color .25s ease;
-  }
-  .card-media, .card-body{transform:translateZ(20px);}
-  @media (prefers-reduced-motion: reduce){
-    .card{transition:background .25s ease, border-color .25s ease;}
-  }
-
-  /* ---------- SECTION HEADS ---------- */
-  section{padding:96px 0; border-top:1px solid var(--line);}
-  .section-label{
-    color:var(--accent); font-weight:700; font-size:0.82rem;
-    margin-bottom:18px; display:block;
-  }
-  h2.section-title{
-    font-size:clamp(1.9rem, 4vw, 2.8rem);
-    font-weight:800; letter-spacing:-0.02em;
-    max-width:16ch; margin-bottom:20px;
-  }
-  .section-intro{
-    color:var(--text-dim); max-width:60ch; font-size:1.02rem;
-    text-align:justify; text-justify:inter-word; hyphens:auto;
-  }
-  @media (max-width:640px){
-    .hero-sub, .section-intro{text-align:left; hyphens:none;}
-  }
-
-  /* ---------- WORK GRID ---------- */
-  .grid{
-    margin-top:52px;
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;
-  }
-  @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:560px){ .grid{grid-template-columns:1fr;} }
-
-  .card{
-    background:var(--bg-card);
-    border-radius:16px;
-    border:1px solid var(--line);
-    display:flex; flex-direction:column;
-    transition:transform .25s ease, background .25s ease, border-color .25s ease;
-    position:relative;
-    overflow:hidden;
-  }
-  .card:hover{transform:translateY(-4px); background:var(--bg-card-hover); border-color:#3a3a3a;}
-
-  /* Image slot — ready to receive a real project photo.
-     Set style="background-image:url('data:image/jpeg;base64,...')" on .card-media
-     and add class "has-img" to remove the placeholder pattern. */
-  .card-media{
-    aspect-ratio: 4 / 3;
-    position:relative;
-    background-color:#1c1c1c;
-    background-image:
-      linear-gradient(135deg, rgba(46,230,197,0.06) 0%, transparent 55%),
-      repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 14px);
-    background-size:cover; background-position:center;
-    display:flex; align-items:flex-end; padding:14px;
-    border-bottom:1px solid var(--line);
-  }
-  .card-media.has-img{background-color:transparent;}
-  .card-media .ph-num{
-    font-size:3.2rem; font-weight:800; color:rgba(255,255,255,0.06);
-    line-height:1; user-select:none;
-  }
-  .card-media.has-img .ph-num{display:none;}
-
-  .card-body{padding:20px 22px 22px; display:flex; flex-direction:column; flex:1;}
-  .card-title{font-weight:700; font-size:1.08rem; line-height:1.25; margin-bottom:6px;}
-  .card-cat{color:var(--text-dim); font-size:0.84rem; margin-bottom:16px;}
-  .card-meta{
-    margin-top:auto;
-    display:flex; justify-content:space-between; align-items:center;
-    font-size:0.78rem; color:var(--text-dim);
-    padding-top:14px; border-top:1px solid var(--line);
-  }
-  .card-link{font-weight:600; color:var(--text); font-size:0.82rem; display:inline-flex; align-items:center; gap:6px;}
-  .card-link svg{width:13px; height:13px; transition:transform .2s ease;}
-  .card:hover .card-link svg{transform:translate(2px,-2px);}
-
-  .card-quickview{
-    position:absolute; top:12px; right:12px; z-index:2;
-    width:34px; height:34px; border-radius:50%;
-    background:rgba(10,10,10,0.75); backdrop-filter:blur(4px);
-    border:1px solid rgba(255,255,255,0.12);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--text); cursor:pointer;
-    opacity:0; transform:translateY(-4px);
-    transition:opacity .2s ease, transform .2s ease, background .2s ease;
-  }
-  .card:hover .card-quickview{opacity:1; transform:translateY(0);}
-  .card-quickview:hover{background:var(--accent); color:#0a0a0a; border-color:var(--accent);}
-  .card-quickview svg{width:16px; height:16px;}
-
-  /* ---------- QUICK VIEW MODAL ---------- */
-  .qv-overlay{
-    position:fixed; inset:0; z-index:300;
-    background:rgba(0,0,0,0.72); backdrop-filter:blur(3px);
-    display:none; align-items:center; justify-content:center;
-    padding:24px;
-  }
-  .qv-overlay.open{display:flex;}
-  .qv-modal{
-    background:var(--bg-card); border:1px solid var(--line); border-radius:20px;
-    max-width:820px; width:100%; max-height:88vh; overflow-y:auto;
-    display:grid; grid-template-columns:1fr; position:relative;
-  }
-  @media (min-width:700px){ .qv-modal{grid-template-columns:1.1fr 0.9fr;} }
-  .qv-media{
-    aspect-ratio:4/3; background-size:cover; background-position:center;
-    background-color:#1c1c1c;
-    border-radius:20px 20px 0 0;
-  }
-  @media (min-width:700px){ .qv-media{border-radius:20px 0 0 20px; aspect-ratio:auto; height:100%;} }
-  .qv-body{padding:34px;}
-  .qv-close{
-    position:absolute; top:16px; right:16px; z-index:2;
-    width:36px; height:36px; border-radius:50%;
-    background:rgba(10,10,10,0.6); border:1px solid rgba(255,255,255,0.15);
-    color:#fff; display:flex; align-items:center; justify-content:center;
-    cursor:pointer; font-size:1.1rem;
-  }
-  .qv-close:hover{background:var(--accent); color:#0a0a0a;}
-  .qv-num{color:var(--accent); font-weight:700; font-size:0.85rem; margin-bottom:12px;}
-  .qv-title{font-size:1.6rem; font-weight:800; letter-spacing:-0.01em; margin-bottom:6px;}
-  .qv-cat{color:var(--text-dim); font-size:0.95rem; margin-bottom:24px;}
-  .qv-steps{list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:28px;}
-  .qv-steps li{
-    display:flex; gap:14px; align-items:flex-start;
-    padding-bottom:14px; border-bottom:1px solid var(--line);
-    font-size:0.92rem; color:var(--text-dim);
-  }
-  .qv-steps li:last-child{border-bottom:none; padding-bottom:0;}
-  .qv-steps b{color:var(--text); min-width:104px; display:inline-block; font-weight:700; font-size:0.78rem;}
-
-  @media (prefers-reduced-motion: reduce){
-    .card-quickview{transition:none;}
-  }
-
-  .card.more{
-    background:transparent; border:1px dashed var(--line);
-    align-items:center; justify-content:center; text-align:center;
-    padding:30px 24px;
-  }
-  .card.more .card-media{display:none;}
-  .card.more .card-body{padding:0; align-items:center; text-align:center;}
-  .card.more:hover{border-color:var(--accent);}
-  .card.more .card-title{font-size:1.15rem;}
-  .card.more .card-cat{margin-bottom:0;}
-
-  .work-cta{margin-top:44px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    background:var(--accent); color:#0a0a0a; font-weight:700; font-size:0.9rem;
-    padding:15px 26px; border-radius:30px; border:none; cursor:pointer;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(46,230,197,0.35);}
-  .btn.ghost{background:transparent; color:var(--text); border:1px solid var(--line);}
-  .btn.ghost:hover{border-color:var(--text); box-shadow:none;}
-
-  /* ---------- ABOUT ---------- */
-  .about-layout{
-    margin-top:48px;
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:start;
-  }
-  @media (max-width:860px){ .about-layout{grid-template-columns:1fr;} }
-  .about-copy p{
-    color:var(--text-dim); font-size:1.05rem; margin-bottom:18px; max-width:56ch;
-    text-align:justify; text-justify:inter-word; hyphens:auto;
-  }
-  @media (max-width:640px){
-    .about-copy p{text-align:left; hyphens:none;}
-  }
-  .about-copy strong{color:var(--text); font-weight:600;}
-  .about-head{display:flex; align-items:center; gap:22px; margin-bottom:20px;}
-  .about-head h2.section-title{margin-bottom:0; max-width:none;}
-  .about-photo{
-    width:88px; height:88px; flex:none; border-radius:50%; object-fit:cover;
-    border:2px solid var(--accent); background:var(--bg-card);
-    box-shadow:0 0 0 6px rgba(46,230,197,0.08);
-  }
-  @media (max-width:640px){ .about-photo{width:64px; height:64px;} .about-head{gap:16px;} }
-  .panel{
-    background:var(--bg-card); border:1px solid var(--line); border-radius:20px;
-    padding:34px;
-  }
-  .panel-eyebrow{color:var(--accent); font-weight:700; font-size:0.85rem; margin-bottom:16px;}
-  .skill-list{list-style:none; display:flex; flex-direction:column; gap:12px;}
-  .skill-list li{
-    font-weight:600; font-size:1.05rem; padding-bottom:12px;
-    border-bottom:1px solid var(--line);
-  }
-  .skill-list li:last-child{border-bottom:none; padding-bottom:0;}
-
-  /* ---------- SERVICES ---------- */
-  .services-grid{margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-  @media (max-width:760px){ .services-grid{grid-template-columns:1fr;} }
-  .svc{
-    background:var(--bg-card); border:1px solid var(--line); border-radius:16px;
-    padding:30px 28px; transition:border-color .25s ease, background .25s ease, transform .3s ease;
-    position:relative; overflow:hidden;
-  }
-  .svc:hover{border-color:#3a3a3a; background:var(--bg-card-hover); transform:translateY(-3px);}
-  .svc-num{color:var(--accent); font-weight:700; font-size:0.85rem; margin-bottom:14px; position:relative; z-index:1;}
-  .svc h3{font-size:1.3rem; font-weight:700; margin-bottom:10px; letter-spacing:-0.01em; position:relative; z-index:1;}
-  .svc p{color:var(--text-dim); font-size:0.98rem; position:relative; z-index:1;}
-  .svc-icon{
-    position:absolute; right:-18px; bottom:-18px; width:150px; height:150px;
-    opacity:0.09; color:var(--text); pointer-events:none; z-index:0;
-    transition:opacity .3s ease, transform .4s ease;
-    filter:url(#sketchy);
-  }
-  .svc:hover .svc-icon{opacity:0.20; transform:scale(1.06) rotate(4deg); color:var(--accent);}
-  @media (prefers-reduced-motion: reduce){
-    .svc:hover .svc-icon{transform:none;}
-  }
-
-  /* ---------- CONTACT ---------- */
-  .contact-layout{
-    margin-top:48px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:56px; align-items:start;
-  }
-  @media (max-width:860px){ .contact-layout{grid-template-columns:1fr;} }
-  h2.big-cta{
-    font-size:clamp(2.2rem, 5vw, 3.6rem); font-weight:800; letter-spacing:-0.02em;
-    line-height:1.05; margin-bottom:22px;
-  }
-  .contact-panel{background:var(--bg-card); border:1px solid var(--line); border-radius:20px; padding:34px;}
-  .contact-row{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 0; border-bottom:1px solid var(--line);
-    font-weight:600; font-size:1.02rem;
-  }
-  .contact-row:last-child{border-bottom:none;}
-  .contact-row a{color:var(--text); transition:color .2s ease;}
-  .contact-row a:hover{color:var(--accent);}
-  .contact-row span.label{color:var(--text-dim); font-weight:500; font-size:0.85rem;}
-
-  footer{
-    border-top:1px solid var(--line);
-    padding:32px 0; display:flex; justify-content:space-between; align-items:center;
-    color:var(--text-dim); font-size:0.85rem; flex-wrap:wrap; gap:12px;
-  }
-</style>
-<style id="kinetic-showcase">
-  .kinetic-showcase{margin:46px 0 58px; border:1px solid var(--line); border-radius:24px; background:#070707; overflow:hidden; position:relative;}
-  .kinetic-showcase::before{content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(46,230,197,.05), transparent 22%, transparent 78%, rgba(46,230,197,.04)); pointer-events:none;}
-  .kinetic-head,.kinetic-foot{display:flex; justify-content:space-between; align-items:center; gap:18px; padding:18px 20px; position:relative; z-index:1;}
-  .kinetic-head{border-bottom:1px solid var(--line);} .kinetic-head strong{display:block; margin-top:3px; font-size:1rem; letter-spacing:-.01em;}
-  .kinetic-head > span,.kinetic-foot{font-size:.72rem; color:var(--text-dim); letter-spacing:.12em;}
-  .kinetic-window{overflow:hidden; padding:14px 0 10px;}
-  .kinetic-track{display:flex; width:max-content; gap:14px; animation:kineticScroll 30s linear infinite;}
-  .kinetic-showcase:hover .kinetic-track{animation-play-state:paused;}
-  .kinetic-item{position:relative; width:clamp(220px,24vw,320px); aspect-ratio:4/5; border-radius:18px; overflow:hidden; flex:0 0 auto; background:#111; border:1px solid #202020; transform:skewY(0deg); transition:transform .35s ease,border-color .35s ease;}
-  .kinetic-item:nth-child(2n){transform:translateY(18px);} .kinetic-item:nth-child(3n){transform:translateY(-12px);}
-  .kinetic-item:hover{transform:translateY(-10px) scale(1.02); border-color:rgba(46,230,197,.65); z-index:2;}
-  .kinetic-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.05);transition:transform .5s ease,filter .5s ease;}
-  .kinetic-item:hover img{transform:scale(1.06);filter:saturate(1.05) contrast(1.08);}
-  .kinetic-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78) 100%);pointer-events:none;}
-  .kinetic-overlay{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:end;color:#fff;z-index:1;font-size:.74rem;letter-spacing:.1em;}
-  .kinetic-overlay b{color:var(--accent);font-weight:800;} .kinetic-overlay em{font-style:normal;font-weight:700;}
-  .kinetic-foot{border-top:1px solid var(--line);}
-  @keyframes kineticScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media (max-width:760px){.kinetic-head,.kinetic-foot{padding:14px 16px;}.kinetic-head>span,.kinetic-foot span:last-child{display:none;}.kinetic-item{width:220px;}.kinetic-track{gap:10px;animation-duration:24s;}}
-  @media (prefers-reduced-motion:reduce){.kinetic-track{animation:none!important;}.kinetic-window{overflow-x:auto;scrollbar-width:thin;}.kinetic-item:nth-child(2n),.kinetic-item:nth-child(3n){transform:none;}}
-
-  .footer-inner{display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:18px;}
-  .footer-brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--text);}
-  .footer-brand img{width:34px; height:28px; object-fit:contain;}
-  .footer-word-accent{color:var(--accent);}
-  @media (max-width:640px){.footer-inner{align-items:flex-start;}.footer-brand{align-items:flex-start;}.footer-brand img{width:38px;height:30px;}}
-</style>
-<style id="project-images">
-[data-project="manzur"] .card-media{background-image:url('assets/asset-02-89e6c286ee7a.jpg');background-color:transparent;}
-[data-project="manzur"] .card-media .ph-num{display:none;}
-[data-project="ggbox"] .card-media{background-image:url('assets/asset-03-566bb8f5f626.jpg');background-color:transparent;}
-[data-project="ggbox"] .card-media .ph-num{display:none;}
-[data-project="bnp"] .card-media{background-image:url('assets/asset-04-ae46e2b7869a.jpg');background-color:transparent;}
-[data-project="bnp"] .card-media .ph-num{display:none;}
-[data-project="mtb"] .card-media{background-image:url('assets/asset-05-315540d324fb.jpg');background-color:transparent;}
-[data-project="mtb"] .card-media .ph-num{display:none;}
-[data-project="webdesign"] .card-media{background-image:url('assets/asset-06-97e46f1e62f6.jpg');background-color:transparent;}
-[data-project="webdesign"] .card-media .ph-num{display:none;}
-[data-project="catalogos"] .card-media{background-image:url('assets/asset-07-ae9aa4a573ef.jpg');background-color:transparent;}
-[data-project="catalogos"] .card-media .ph-num{display:none;}
-[data-project="gucharas"] .card-media{background-image:url('assets/asset-08-9c3acd2881b5.jpg');background-color:transparent;}
-[data-project="gucharas"] .card-media .ph-num{display:none;}
-[data-project="ciclolondo"] .card-media{background-image:url('assets/asset-09-85497c53fe88.jpg');background-color:transparent;}
-[data-project="ciclolondo"] .card-media .ph-num{display:none;}
-</style>
-
-<link rel="icon" href="assets/a-estudiocreativo-logo.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
-    <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="noise"/>
-    <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-</svg>
-
-<div class="progress" id="progressBar"></div>
+<div class="pagina">
+<div class="ondas" aria-hidden="true"></div>
 
 <header>
-  <div class="wrap nav-inner">
-    <a href="#top" class="logo" aria-label="estudiocreativo — inicio"><img src="assets/a-estudiocreativo-logo.svg" alt="Ícono a. de estudiocreativo" class="logo-mark"><span class="logo-name"><span>estudio</span><span class="logo-word-accent">creativo</span></span></a>
-    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navList" aria-label="Abrir menú">☰</button>
-    <nav>
-      <ul id="navList">
-        <li><a href="#work">WORK</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="motion-lab.html">MOTION LAB</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
-    </nav>
+  <div class="wrap nav">
+    <a class="marca" href="#inicio" aria-label="PDUL Maturín, inicio">
+      <span class="tiles" aria-hidden="true"><b>P</b><b>D</b><b>U</b><b>L</b></span>PDUL Maturín
+    </a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#quienes-somos">Quiénes somos</a></li>
+      <li><a href="#mision">Misión</a></li>
+      <li><a href="#vision">Visión</a></li>
+      <li><a href="#objetivos">Objetivos</a></li>
+      <li class="solo-movil"><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn p chico" href="#contacto">Contacto</a>
   </div>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero" style="border-top:none;" id="heroSection">
-    <div class="glow" id="heroGlow"></div>
-    <div class="wrap">
-      <span class="eyebrow">DISPONIBLE PARA PROYECTOS FREELANCE</span>
-      <h1 class="display">Dirección creativa con visión de diseño visual.</h1>
-      <p class="hero-sub">
-        Manuel Alejandro Millán Aguilar — Director Creativo Senior y Diseñador Visual.
-        Más de 15 años conectando estrategia de marca con sistemas visuales de alto impacto:
-        branding, contenido digital, UX/UI y dirección de arte.
-      </p>
-      <div class="hero-meta">
-        <div><strong>15+ años</strong>Dirección creativa & branding</div>
-        <div><strong>estudiocreativo</strong>Estudio propio</div>
-        <div><strong>Remoto / Freelance</strong>Disponible ahora</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORK -->
-  <section id="work">
-    <div class="wrap">
-      <span class="section-label reveal">SELECTED WORK</span>
-      <h2 class="section-title reveal">Proyectos seleccionados</h2>
-      <p class="section-intro">
-        Una selección curada de identidad de marca, sistemas visuales, contenido digital
-        y comunicación de campaña, extraída directamente de mi portafolio en Behance.
-      </p>
-
-      <div class="kinetic-showcase reveal" aria-label="Muestra cinética de proyectos seleccionados">
-        <div class="kinetic-head">
-          <div>
-            <span class="section-label">KINETIC CASE REEL</span>
-            <strong>Selección en movimiento</strong>
-          </div>
-          <span>HOVER / TAP · BEHANCE CASES</span>
-        </div>
-        <div class="kinetic-window">
-          <div class="kinetic-track">
-            <a class="kinetic-item" href="https://www.behance.net/gallery/189296699/MANZUR-COL" target="_blank" rel="noopener">
-              <img src="assets/asset-02-89e6c286ee7a.jpg" alt="Manzur — identidad de marca">
-              <span class="kinetic-overlay"><b>01</b><em>MANZUR</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254763071/bnp" target="_blank" rel="noopener">
-              <img src="assets/asset-04-ae46e2b7869a.jpg" alt="BPN — publicidad">
-              <span class="kinetic-overlay"><b>02</b><em>BPN</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col" target="_blank" rel="noopener">
-              <img src="assets/asset-06-97e46f1e62f6.jpg" alt="MZR — diseño web">
-              <span class="kinetic-overlay"><b>03</b><em>MZR / WEB</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254760591/Guacharas" target="_blank" rel="noopener">
-              <img src="assets/asset-08-9c3acd2881b5.jpg" alt="Guácharas de Monagas — identidad deportiva">
-              <span class="kinetic-overlay"><b>04</b><em>GUÁCHARAS</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254791477/MZR-RIDE-MTB" target="_blank" rel="noopener">
-              <img src="assets/asset-05-315540d324fb.jpg" alt="MZR Ride MTB — campaña deportiva">
-              <span class="kinetic-overlay"><b>05</b><em>MZR / RIDE</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/189296699/MANZUR-COL" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-              <img src="assets/asset-02-89e6c286ee7a.jpg" alt="">
-              <span class="kinetic-overlay"><b>01</b><em>MANZUR</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254763071/bnp" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-              <img src="assets/asset-04-ae46e2b7869a.jpg" alt="">
-              <span class="kinetic-overlay"><b>02</b><em>BPN</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-              <img src="assets/asset-06-97e46f1e62f6.jpg" alt="">
-              <span class="kinetic-overlay"><b>03</b><em>MZR / WEB</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254760591/Guacharas" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-              <img src="assets/asset-08-9c3acd2881b5.jpg" alt="">
-              <span class="kinetic-overlay"><b>04</b><em>GUÁCHARAS</em></span>
-            </a>
-            <a class="kinetic-item" href="https://www.behance.net/gallery/254791477/MZR-RIDE-MTB" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-              <img src="assets/asset-05-315540d324fb.jpg" alt="">
-              <span class="kinetic-overlay"><b>05</b><em>MZR / RIDE</em></span>
-            </a>
-          </div>
-        </div>
-        <div class="kinetic-foot"><span>BRANDING × DIGITAL × CAMPAIGN</span><span>SEAMLESS MOTION STUDY</span></div>
-      </div>
-
-      <div class="grid reveal">
-
-        <a class="card" data-project="manzur" href="https://www.behance.net/gallery/189296699/MANZUR-COL" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">01</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">Manzur</div>
-            <div class="card-cat">Identidad de marca / estrategia visual</div>
-            <div class="card-meta">
-              <span>3.9k views</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card" data-project="bnp" href="https://www.behance.net/gallery/254763071/bnp" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">02</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">BPN | Publicidad</div>
-            <div class="card-cat">Identidad visual / comunicación de marca</div>
-            <div class="card-meta">
-              <span>3.6k views</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card" data-project="webdesign" href="https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">03</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">MZR — Diseño Web</div>
-            <div class="card-cat">UX/UI / sitio web</div>
-            <div class="card-meta">
-              <span>88 views</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card" data-project="catalogos" href="https://www.behance.net/gallery/254857801/MZR-Catalogos" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">04</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">MZR — Catálogos</div>
-            <div class="card-cat">Diseño editorial / producto</div>
-            <div class="card-meta">
-              <span>88 views</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card" data-project="gucharas" href="https://www.behance.net/gallery/254760591/Guacharas" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">05</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">Guácharas de Monagas</div>
-            <div class="card-cat">Identidad de marca deportiva</div>
-            <div class="card-meta">
-              <span>66 views</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card" data-project="mtb" href="https://www.behance.net/gallery/254791477/MZR-RIDE-MTB" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">06</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">MZR Ride MTB</div>
-            <div class="card-cat">Campaña deportiva / downhill</div>
-            <div class="card-meta">
-              <span>44 views</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card" data-project="ggbox" href="https://www.behance.net/gallery/245204383/GG-BOX-APPAREL" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">07</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">GG Box Apparel</div>
-            <div class="card-cat">Branding / apparel deportivo</div>
-            <div class="card-meta">
-              <span>Behance</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card" data-project="ciclolondo" href="https://www.behance.net/gallery/245031105/CicloLondo" target="_blank" rel="noopener">
-          <div class="card-media">
-            <span class="ph-num">08</span>
-          
-            <button class="card-quickview" data-qv-trigger aria-label="Vista rápida">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-            </button>
-          </div>
-          <div class="card-body">
-            <div class="card-title">CicloLondo</div>
-            <div class="card-cat">Retail / branding deportivo</div>
-            <div class="card-meta">
-              <span>Behance</span>
-              <span class="card-link">Ver en Behance
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-              </span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card more" href="https://www.behance.net/al3millan" target="_blank" rel="noopener">
-          <div class="card-body">
-            <div class="card-title">Más proyectos →</div>
-            <div class="card-cat" style="margin-bottom:0;">LAC, MZR International Ambassadors y más — portafolio completo en Behance</div>
-          </div>
-        </a>
-
-      </div>
-
-      <div class="work-cta">
-        <a class="btn" href="https://www.behance.net/al3millan" target="_blank" rel="noopener">
-          Ver portafolio completo
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-        </a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/al3millan" target="_blank" rel="noopener">Ver LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <span class="section-label reveal">PROFILE / EXPERIENCE</span>
-      <div class="about-head reveal">
-        <img class="about-photo" src="assets/asset-10-ae1a436ac880.png" alt="Manuel Alejandro Millán Aguilar" width="88" height="88">
-        <h2 class="section-title">Perfil</h2>
-      </div>
-
-      <div class="about-layout reveal">
-        <div class="about-copy">
-          <p>
-            Soy director creativo y diseñador visual. Convierto la estrategia de una marca en un sistema
-            visual que se reconoce, se entiende y se sostiene en el tiempo, con <strong>más de 15 años</strong>
-            de trayectoria haciéndolo.
-          </p>
-          <p>
-            Trabajo en la unión entre pensamiento estratégico, dirección de arte y producción —de la identidad
-            de marca al contenido digital y las experiencias UX/UI— para que cada pieza responda a un objetivo
-            de negocio y no solo se vea bien.
-          </p>
-          <p>
-            Hoy sigo ampliando mi oficio con <strong>Motion Design, After Effects y Figma</strong>, y sumo flujos
-            con IA a mi proceso creativo y de producción.
-          </p>
-        </div>
-
-        <div class="panel">
-          <div class="panel-eyebrow">SENIOR CREATIVE DIRECTOR</div>
-          <ul class="skill-list">
-            <li>Brand identity</li>
-            <li>Creative direction</li>
-            <li>Visual content</li>
-            <li>UX/UI & experiencias digitales</li>
-            <li>Dirección de arte</li>
-            <li>Motion / IA / experimentación</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="wrap">
-      <span class="section-label reveal">WHAT I CAN BUILD WITH YOU</span>
-      <h2 class="section-title reveal">Servicios</h2>
-
-      <div class="services-grid reveal">
-        <div class="svc">
-          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M48,12 C22,14 9,34 13,55 C17,77 42,90 63,84 C87,77 92,52 78,34 C68,21 54,18 48,26"/>
-  <path d="M46,14 C24,17 12,36 16,54"/>
-  <line x1="40" y1="46" x2="58" y2="52"/>
-  <line x1="52" y1="38" x2="46" y2="58"/>
-</svg>
-          <h3>Brand Identity</h3>
-          <p>Estrategia, identidad visual, sistemas de logotipo, guidelines y aplicaciones.</p>
-        </div>
-        <div class="svc">
-          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M50,10 C54,28 50,40 50,50"/>
-  <path d="M50,50 C64,42 78,38 92,32"/>
-  <path d="M50,50 C60,62 66,74 74,90"/>
-  <path d="M50,50 C34,58 22,66 8,76"/>
-  <path d="M50,50 C40,36 30,26 18,14"/>
-  <circle cx="50" cy="50" r="6" fill="none"/>
-</svg>
-          <h3>Creative Direction</h3>
-          <p>Desarrollo de concepto, dirección de arte, campañas y sistemas visuales.</p>
-        </div>
-        <div class="svc">
-          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M10,16 L91,14 C93,14 94,15 94,18 L92,82 C92,85 90,86 88,86 L11,88 C9,88 8,86 8,84 L9,18 C9,16 10,16 10,16 Z"/>
-  <path d="M9,32 L93,30"/>
-  <path d="M20,50 C35,48 55,52 70,49"/>
-  <path d="M20,62 C30,61 40,63 48,61"/>
-</svg>
-          <h3>Digital / UX-UI</h3>
-          <p>Experiencias web, dirección de interfaz, estructura de información y diseño visual.</p>
-        </div>
-        <div class="svc">
-          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M10,30 C24,24 46,20 56,26 C60,36 58,54 52,60 C38,66 16,62 10,54 C7,46 8,36 10,30 Z"/>
-  <path d="M14,42 L48,34" stroke-dasharray="0.5 6"/>
-  <path d="M40,52 C54,48 74,46 86,52 C90,60 88,76 82,82 C70,86 50,84 44,78 C41,70 40,60 40,52 Z"/>
-</svg>
-          <h3>Visual Content</h3>
-          <p>Editorial, contenido social, presentaciones, campañas y sistemas de contenido.</p>
-        </div>
-        <a class="svc svc-link" href="motion-lab.html" aria-label="Motion Lab: ver ensayos de animación">
-          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M8,86 C22,70 18,52 34,46 C48,41 50,60 64,54 C78,48 76,26 92,16"/>
-  <circle cx="8" cy="86" r="3.2"/>
-  <circle cx="34" cy="46" r="3.2"/>
-  <circle cx="64" cy="54" r="3.2"/>
-  <circle cx="92" cy="16" r="3.2"/>
-</svg>
-          <h3>Motion / IA</h3>
-          <p>Motion design, experimentación creativa y flujos emergentes de trabajo con IA.</p>
-        
-          <span class="svc-more">Ver ensayos
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </span>
-        </a>
-        <div class="svc">
-          <svg class="svc-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M9,9 L34,10 L33,35 L8,34 Z"/>
-  <path d="M42,10 L91,9 L90,27 L41,28 Z"/>
-  <path d="M9,44 L26,45 L25,91 L8,90 Z"/>
-  <path d="M35,36 L65,35 L66,65 L34,66 Z"/>
-  <path d="M74,36 L91,37 L90,92 L73,91 Z"/>
-</svg>
-          <h3>Design Systems</h3>
-          <p>Reglas visuales reutilizables, componentes y activos de marca escalables.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <span class="section-label reveal">LET'S WORK TOGETHER</span>
-      <div class="contact-layout">
-        <div>
-          <h2 class="big-cta reveal">¿Tienes un proyecto en mente?</h2>
-          <p class="section-intro">
-            Para colaboraciones freelance, dirección creativa, branding, experiencias digitales
-            o contenido visual — empecemos por el problema que necesitas resolver.
-          </p>
-          <div class="work-cta">
-            <a class="btn" href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Iniciar una conversación por WhatsApp">
-              Iniciar una conversación por WhatsApp
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="contact-panel">
-          <div class="panel-eyebrow">ONLINE</div>
-          <div class="contact-row">
-            <span class="label">Email</span>
-            <a href="mailto:al3millan@gmail.com">al3millan@gmail.com</a>
-          </div>
-          <div class="contact-row">
-            <span class="label">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/al3millan" target="_blank" rel="noopener">al3millan</a>
-          </div>
-          <div class="contact-row">
-            <span class="label">Behance</span>
-            <a href="https://www.behance.net/al3millan" target="_blank" rel="noopener">al3millan</a>
-          </div>
-          <div class="contact-row">
-            <span class="label">WhatsApp</span>
-            <a href="https://wa.me/573222806356?text=Hola%20Manuel%2C%20vi%20tu%20portfolio%20de%20estudiocreativo%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer">+57 322 280 6356</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- QUICK VIEW MODAL -->
-<div class="qv-overlay" id="qvOverlay">
-  <div class="qv-modal">
-    <button class="qv-close" id="qvClose" aria-label="Cerrar">✕</button>
-    <div class="qv-media" id="qvMedia"></div>
-    <div class="qv-body">
-      <div class="qv-num" id="qvNum"></div>
-      <div class="qv-title" id="qvTitle"></div>
-      <div class="qv-cat" id="qvCat"></div>
-      <ul class="qv-steps">
-        <li><b>CONTEXTO</b><span id="qvContext"></span></li>
-        <li><b>CONCEPTO</b><span id="qvConcept"></span></li>
-        <li><b>SISTEMA</b><span id="qvSystem"></span></li>
-        <li><b>APLICACIONES</b><span id="qvApps"></span></li>
-      </ul>
-      <a class="btn" id="qvLink" href="#" target="_blank" rel="noopener">
-        Ver caso completo en Behance
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.6"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-      </a>
+<main>
+<!-- Inicio -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <h1>Maturín <i class="tile t1" aria-hidden="true">P</i><br>una ciudad <i class="tile t2" aria-hidden="true">D</i><br>con <i class="tile t3" aria-hidden="true">U</i> propósito <i class="tile t4" aria-hidden="true">L</i></h1>
+    <p class="sub">Plan de Desarrollo Urbano Local.<br>El instrumento que orienta, regula y administra el desarrollo físico y territorial del municipio.</p>
+    <div class="btns">
+      <a class="btn p" href="#quienes-somos">Conoce el PDUL</a>
+      <a class="btn g" href="#objetivos">Ver objetivos <span aria-hidden="true">→</span></a>
     </div>
   </div>
+</section>
+
+<section class="vitrina">
+  <div class="wrap">
+    <div class="marco">
+      <img src="assets/hero-pdul.jpg" width="1800" height="1125" alt="Avenida arbolada de Maturín con el monumento a La Libertad y la catedral, junto a las letras PDUL">
+    </div>
+  </div>
+</section>
+
+<!-- Franja de ejes -->
+<section class="ejes">
+  <div class="wrap">
+    <p class="ejes-t">Un plan que ordena</p>
+    <ul class="ejes-l">
+      <li>Zonificación</li><li>Movilidad</li><li>Servicios públicos</li><li>Catastro</li><li>Espacios públicos</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Quiénes somos -->
+<section class="quienes" id="quienes-somos">
+  <div class="wrap">
+    <h2 class="dos-tonos"><span>Dejamos atrás el crecimiento espontáneo.</span> <em>Maturín se diseña con propósito.</em></h2>
+    <p class="texto-gris">El Plan de Desarrollo Urbano Local (PDUL) de Maturín es el instrumento técnico y legal fundamental para orientar, regular y administrar el desarrollo físico y territorial del municipio. Nacemos con el firme propósito de dejar atrás el crecimiento espontáneo para convertir a la capital monaguense en una ciudad diseñada con propósito. Trabajamos articuladamente integrando la planificación técnica institucional con la participación protagónica del Poder Popular.</p>
+    <p class="etiqueta"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Quiénes somos</p>
+  </div>
+  <div class="franja" aria-hidden="true">
+    <div class="pista">
+      <img src="assets/c4.jpg" alt=""><img src="assets/c2.jpg" alt=""><img src="assets/c1.jpg" alt=""><img src="assets/c3.jpg" alt=""><img src="assets/c6.jpg" alt=""><img src="assets/c5.jpg" alt="">
+      <img src="assets/c4.jpg" alt=""><img src="assets/c2.jpg" alt=""><img src="assets/c1.jpg" alt=""><img src="assets/c3.jpg" alt=""><img src="assets/c6.jpg" alt=""><img src="assets/c5.jpg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- Misión -->
+<section id="mision">
+  <div class="wrap">
+    <h2 class="centro">Una misión,<br>tres pilares.</h2>
+    <div class="rejilla">
+      <article class="celda"><h3>Regulación del uso del suelo</h3><span class="pil" style="--c:var(--verde)">1 · Ordenar e integrar el territorio</span><p>Establecer qué zonas se destinan a vivienda, comercio, industria, recreación o preservación ambiental.</p></article>
+      <article class="celda"><h3>Proyección de infraestructura</h3><span class="pil" style="--c:var(--verde)">1 · Ordenar e integrar el territorio</span><p>Planificar las redes de transporte, vialidad, servicios públicos (agua, electricidad, saneamiento) y equipamientos urbanos (escuelas, hospitales, parques).</p></article>
+      <article class="celda"><h3>Desarrollo sostenible</h3><span class="pil" style="--c:var(--amarillo)">2 · Promover la sostenibilidad y la calidad de vida</span><p>Equilibrio entre el crecimiento económico, la inclusión social y la conservación del medio ambiente y del patrimonio cultural.</p></article>
+      <article class="celda"><h3>Mitigación de riesgos</h3><span class="pil" style="--c:var(--amarillo)">2 · Promover la sostenibilidad y la calidad de vida</span><p>Identificar zonas vulnerables a desastres naturales o socionaturales para restringir su ocupación e implementar medidas preventivas.</p></article>
+      <article class="celda"><h3>Marco normativo claro</h3><span class="pil" style="--c:var(--azul-logo)">3 · Otorgar seguridad jurídica y guiar la inversión</span><p>Servir de base legal para licencias de construcción, permisos de habitabilidad y zonificación.</p></article>
+      <article class="celda"><h3>Orientación socioeconómica</h3><span class="pil" style="--c:var(--azul-logo)">3 · Otorgar seguridad jurídica y guiar la inversión</span><p>Atraer y canalizar la inversión pública y privada de manera organizada, coherente con las necesidades reales de la población.</p></article>
+    </div>
+    <p class="resumen">La misión del PDUL es transformar el espacio urbano en un entorno ordenado, eficiente, seguro, equitativo y sostenible, garantizando el bienestar de sus habitantes y el desarrollo armónico del municipio.</p>
+  </div>
+</section>
+
+<!-- Visión -->
+<section class="vision" id="vision">
+  <div class="wrap dos-col">
+    <div class="izq">
+      <h2>Visión:<br>Maturín a 15 años.</h2>
+      <p class="texto-gris chico">Imagen-objetivo: una ciudad que se consolida bajo un modelo urbano inclusivo, más humano, sustentable, moderno y resiliente.</p>
+      <ul class="rasgos">
+        <li style="--c:var(--verde)">Inclusiva</li><li style="--c:var(--rojo)">Humana</li><li style="--c:var(--amarillo)">Sustentable</li><li style="--c:var(--azul-logo)">Moderna</li><li style="--c:var(--teal)">Resiliente</li>
+      </ul>
+    </div>
+    <div class="der">
+      <div class="panel-gris">
+        <article class="burbuja"><h3>Servicios eficientes para todos</h3><p>Superar el crecimiento desordenado asegurando que la expansión urbana vaya de la mano con la cobertura y optimización de los servicios públicos esenciales y con espacios desarrollados de forma equitativa.</p></article>
+        <article class="burbuja"><h3>Participación protagónica del Poder Popular</h3><p>El diseño de la ciudad no se decide solo desde un escritorio técnico: integra a comunidades, comunas y voceros locales en la construcción de su propio modelo territorial.</p></article>
+        <article class="burbuja"><h3>Desarrollo sustentable y con propósito</h3><p>Una dinámica urbana amigable con el ambiente, ordenada bajo criterios técnicos y preparada para un crecimiento armónico durante los próximos 15 años.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Objetivos -->
+<section class="banda" id="objetivos">
+  <div class="wrap">
+    <h2 class="centro">Objetivos<br>del plan.</h2>
+    <p class="texto-gris centro-t">Enfocados en resolver el crecimiento desordenado de la ciudad y proyectarla a un horizonte de 15 años.</p>
+
+    <h3 class="grupo">Objetivos generales</h3>
+    <div class="trio">
+      <article class="blanca"><span class="punto" style="--c:var(--rojo)"></span><h3>Consolidar una ciudad inclusiva y justa</h3><p>Garantizar que todos los sectores y parroquias del municipio tengan acceso equitativo a servicios públicos, viviendas dignas, equipamientos e infraestructura, sin distinción social o geográfica.</p></article>
+      <article class="blanca"><span class="punto" style="--c:var(--verde)"></span><h3>Garantizar el crecimiento urbano sustentable</h3><p>Diseñar la ciudad bajo criterios técnicos que respeten los recursos naturales, prevengan riesgos ambientales y aseguren mejor calidad de vida a las futuras generaciones.</p></article>
+      <article class="blanca"><span class="punto" style="--c:var(--azul-logo)"></span><h3>Involucrar la participación ciudadana (Poder Popular)</h3><p>Democratizar el ordenamiento territorial integrando a consejos comunales, comunas y vecinos en las etapas de diagnóstico, consulta y propuesta.</p></article>
+    </div>
+
+    <h3 class="grupo">Objetivos específicos y acciones concretas</h3>
+    <div class="trio">
+      <article class="blanca"><span class="punto" style="--c:var(--teal)"></span><h3>Reorganización y control de la zonificación</h3><p>Regular y definir con claridad el uso del suelo (residencial, comercial, industrial y recreativo) para evitar la expansión caótica e ilegal.</p></article>
+      <article class="blanca"><span class="punto" style="--c:var(--teal)"></span><h3>Modernización de la movilidad y del tránsito</h3><p>Reestructurar las arterias viales, optimizar el transporte público, reordenar el pasaje urbano y recuperar la red de semáforos.</p></article>
+      <article class="blanca"><span class="punto" style="--c:var(--teal)"></span><h3>Optimización de servicios públicos básicos</h3><p>Mejorar la recolección de desechos sólidos, el alumbrado público, el agua potable y el saneamiento en el municipio.</p></article>
+      <article class="blanca"><span class="punto" style="--c:var(--teal)"></span><h3>Fortalecimiento del sistema catastral</h3><p>Actualizar y modernizar el catastro municipal para administrar mejor el territorio y la recaudación fiscal.</p></article>
+      <article class="blanca"><span class="punto" style="--c:var(--teal)"></span><h3>Recuperación y creación de espacios públicos</h3><p>Rehabilitar áreas de uso común, avenidas principales, parques y condominios para fomentar el esparcimiento y el saneamiento urbano.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Cita -->
+<section class="cita-sec">
+  <div class="wrap cita-grid">
+    <blockquote>
+      <span class="comilla" aria-hidden="true">“</span>
+      <p>El objetivo central es pasar de una ciudad que creció por expansión espontánea a una ciudad pensada y diseñada con propósito, ordenada, segura y funcional.</p>
+    </blockquote>
+    <div class="autor">
+      <span class="tiles" aria-hidden="true"><b>P</b><b>D</b><b>U</b><b>L</b></span>
+      <div><strong>PDUL Maturín</strong><span>Objetivo central del plan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Participación -->
+<section class="promo">
+  <div class="wrap">
+    <div class="nube izq" aria-hidden="true"><i class="tile t1">P</i><i class="tile t2">D</i><i class="tile t3">U</i><i class="tile t4">L</i><i class="tile t1">P</i></div>
+    <div class="promo-t">
+      <h2>Participación protagónica del Poder Popular.</h2>
+      <p class="texto-gris centro-t">Consejos comunales, comunas y vecinos son parte del diagnóstico, la consulta y la propuesta del plan.</p>
+      <a class="btn p" href="mailto:pdulmaturin2027@gmail.com">Escribir al PDUL</a>
+    </div>
+    <div class="nube der" aria-hidden="true"><i class="tile t4">L</i><i class="tile t3">U</i><i class="tile t2">D</i><i class="tile t1">P</i><i class="tile t2">D</i></div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="final" id="contacto">
+  <div class="wrap">
+    <h2>Conoce el plan.<br>Construye la ciudad.</h2>
+    <p class="texto-gris centro-t">Sector Las Avenidas, Av. Andrés Eloy Blanco, C.P. Cristina, LC-01.</p>
+    <div class="btns">
+      <a class="btn p" href="mailto:pdulmaturin2027@gmail.com">Escribir al PDUL</a>
+      <a class="btn g" href="tel:+584147417874">Llamar al 0414 741 78 74</a>
+    </div>
+  </div>
+</section>
+</main>
 </div>
 
 <footer>
-  <div class="wrap footer-inner">
-    <div class="footer-brand"><img src="assets/a-estudiocreativo-logo.svg" alt="Ícono a."><span><span>estudio</span><span class="footer-word-accent">creativo</span> · Manuel Alejandro Millán</span></div>
-    <span>Dirección Creativa / Diseño Visual · Remoto · Freelance</span>
+  <div class="wrap">
+    <div class="pie">
+      <a class="marca claro" href="#inicio"><span class="tiles" aria-hidden="true"><b>P</b><b>D</b><b>U</b><b>L</b></span>PDUL Maturín</a>
+      <div>
+        <h3>Plan</h3>
+        <ul>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#mision">Misión</a></li>
+          <li><a href="#vision">Visión</a></li>
+          <li><a href="#objetivos">Objetivos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <ul>
+          <li><a href="tel:+584147417874">0414 741 78 74</a></li>
+          <li><a href="mailto:pdulmaturin2027@gmail.com">pdulmaturin2027@gmail.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Dirección</h3>
+        <ul><li>Sector Las Avenidas, Av. Andrés Eloy Blanco, C.P. Cristina, LC-01. Maturín, Venezuela.</li></ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 PDUL Maturín. Maturín, una ciudad con propósito.</p>
   </div>
+  <div class="arboles" aria-hidden="true"></div>
+  <div class="gigante" aria-hidden="true">PDUL</div>
 </footer>
 
-<script>
-  // Shared feature-detection flags, declared once at top level so every block below can use them.
-  var prefersReduced = false, isTouch = false;
-  try { prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e) {}
-  try { isTouch = window.matchMedia('(hover: none)').matches; } catch(e) {}
-
-  // Nav mobile toggle
-  try {
-    var navToggle = document.getElementById('navToggle');
-    var navList = document.getElementById('navList');
-    if (navToggle && navList) {
-      navToggle.addEventListener('click', function(){
-        var isOpen = navList.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-        navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-      });
-      navList.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          navList.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-          navToggle.setAttribute('aria-label', 'Abrir menú');
-        });
-      });
-      document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape') {
-          navList.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-          navToggle.setAttribute('aria-label', 'Abrir menú');
-        }
-      });
-    }
-  } catch (err) {}
-
-  // Active nav link on scroll
-  try {
-    var sections = document.querySelectorAll('section[id]');
-    var navLinks = document.querySelectorAll('nav a');
-    var setActive = function () {
-      var current = '';
-      sections.forEach(function(sec){
-        var rect = sec.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
-      });
-      navLinks.forEach(function(link){
-        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-      });
-    };
-    document.addEventListener('scroll', setActive, { passive: true });
-    setActive();
-  } catch (err) {}
-
-  // Scroll progress bar
-  try {
-    var progressBar = document.getElementById('progressBar');
-    if (progressBar) {
-      var updateProgress = function () {
-        var h = document.documentElement;
-        var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-        progressBar.style.width = scrolled + '%';
-      };
-      document.addEventListener('scroll', updateProgress, { passive: true });
-      updateProgress();
-    }
-  } catch (err) {}
-
-  // Hero mouse-follow glow (desktop only, respects reduced motion)
-  try {
-    var heroSection = document.getElementById('heroSection');
-    if (heroSection && !prefersReduced && !isTouch) {
-      heroSection.addEventListener('mousemove', function(e){
-        var rect = heroSection.getBoundingClientRect();
-        var x = ((e.clientX - rect.left) / rect.width) * 100;
-        var y = ((e.clientY - rect.top) / rect.height) * 100;
-        heroSection.style.setProperty('--gx', x + '%');
-        heroSection.style.setProperty('--gy', y + '%');
-      });
-    }
-  } catch (err) {}
-
-  // Quick view (project detail modal)
-  try {
-    var qvData = {
-      manzur: {
-        num: "01", title: "Manzur", cat: "Identidad de marca / estrategia visual",
-        href: "https://www.behance.net/gallery/189296699/MANZUR-COL",
-        context: "Marca que necesitaba una identidad visual sólida y coherente.",
-        concept: "Sistema visual construido desde el nombre y su carácter deportivo.",
-        system: "Logotipo, paleta y tipografía aplicados de forma consistente.",
-        apps: "Aplicaciones de marca en distintos formatos y soportes."
-      },
-      bnp: {
-        num: "02", title: "BPN | Publicidad", cat: "Identidad visual / comunicación de marca",
-        href: "https://www.behance.net/gallery/254763071/bnp",
-        context: "Proyecto de comunicación visual para una marca de publicidad.",
-        concept: "Identidad construida sobre un símbolo distintivo y memorable.",
-        system: "Sistema gráfico aplicado sobre texturas y fondos de marca.",
-        apps: "Piezas de comunicación y aplicaciones visuales de marca."
-      },
-      webdesign: {
-        num: "03", title: "MZR — Diseño Web", cat: "UX/UI / sitio web",
-        href: "https://www.behance.net/gallery/254953643/Diseno-web-Mzr-Col",
-        context: "Necesidad de una presencia web coherente con la identidad MZR.",
-        concept: "Diseño de interfaz alineado al sistema visual de marca.",
-        system: "Estructura de página, jerarquía visual y componentes UI.",
-        apps: "Sitio web funcional como extensión digital de la marca."
-      },
-      catalogos: {
-        num: "04", title: "MZR — Catálogos", cat: "Diseño editorial / producto",
-        href: "https://www.behance.net/gallery/254857801/MZR-Catalogos",
-        context: "Presentación de producto en formato catálogo impreso/digital.",
-        concept: "Diseño editorial que organiza producto e información de forma clara.",
-        system: "Grilla editorial, tipografía y tratamiento visual del producto.",
-        apps: "Catálogo listo para producción e impresión."
-      },
-      gucharas: {
-        num: "05", title: "Guácharas de Monagas", cat: "Identidad de marca deportiva",
-        href: "https://www.behance.net/gallery/254760591/Guacharas",
-        context: "Identidad visual para un equipo/club deportivo.",
-        concept: "Símbolo y naming con fuerte carácter regional y deportivo.",
-        system: "Logotipo, colores de club y variantes de aplicación.",
-        apps: "Uniformes, gráfica de equipo y comunicación del club."
-      },
-      mtb: {
-        num: "06", title: "MZR Ride MTB", cat: "Campaña deportiva / downhill",
-        href: "https://www.behance.net/gallery/254791477/MZR-RIDE-MTB",
-        context: "Campaña visual para contenido de ciclismo de montaña.",
-        concept: "Comunicación con energía visual asociada al deporte extremo.",
-        system: "Logotipo de campaña con paleta cálida tipo atardecer.",
-        apps: "Contenido de campaña y gráfica para comunicación deportiva."
-      },
-      ggbox: {
-        num: "07", title: "GG Box Apparel", cat: "Branding / apparel deportivo",
-        href: "https://www.behance.net/gallery/245204383/GG-BOX-APPAREL",
-        context: "Marca de apparel que necesitaba una identidad con carácter.",
-        concept: "Símbolo geométrico con textura y acabado gráfico distintivo.",
-        system: "Logotipo, tipografía de soporte y sistema de marca.",
-        apps: "Aplicación en prendas y piezas de comunicación de marca."
-      },
-      ciclolondo: {
-        num: "08", title: "CicloLondo", cat: "Retail / branding deportivo",
-        href: "https://www.behance.net/gallery/245031105/CicloLondo",
-        context: "Identidad para un negocio retail del sector ciclismo.",
-        concept: "Comunicación visual centrada en la experiencia del ciclista.",
-        system: "Logotipo, tipografía y paleta aplicados al punto de venta.",
-        apps: "Gráfica de marca para comunicación y punto de venta."
-      }
-    };
-
-    var qvOverlay = document.getElementById('qvOverlay');
-    var qvMedia = document.getElementById('qvMedia');
-    var qvNum = document.getElementById('qvNum');
-    var qvTitle = document.getElementById('qvTitle');
-    var qvCat = document.getElementById('qvCat');
-    var qvContext = document.getElementById('qvContext');
-    var qvConcept = document.getElementById('qvConcept');
-    var qvSystem = document.getElementById('qvSystem');
-    var qvApps = document.getElementById('qvApps');
-    var qvLink = document.getElementById('qvLink');
-    var qvClose = document.getElementById('qvClose');
-    var lastFocused = null;
-
-    if (qvOverlay && qvMedia && qvNum && qvTitle && qvCat && qvContext && qvConcept && qvSystem && qvApps && qvLink && qvClose) {
-      var openQuickView = function (projectKey, mediaEl) {
-        var d = qvData[projectKey];
-        if (!d) return;
-        qvNum.textContent = d.num;
-        qvTitle.textContent = d.title;
-        qvCat.textContent = d.cat;
-        qvContext.textContent = d.context;
-        qvConcept.textContent = d.concept;
-        qvSystem.textContent = d.system;
-        qvApps.textContent = d.apps;
-        qvLink.href = d.href;
-        qvMedia.style.backgroundImage = mediaEl ? getComputedStyle(mediaEl).backgroundImage : 'none';
-        lastFocused = document.activeElement;
-        qvOverlay.classList.add('open');
-        qvClose.focus();
-        document.body.style.overflow = 'hidden';
-      };
-      var closeQuickView = function () {
-        qvOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-        if (lastFocused) lastFocused.focus();
-      };
-
-      document.querySelectorAll('[data-qv-trigger]').forEach(function(btn){
-        btn.addEventListener('click', function(e){
-          e.preventDefault();
-          e.stopPropagation();
-          var card = btn.closest('[data-project]');
-          if (!card) return;
-          var media = card.querySelector('.card-media');
-          openQuickView(card.getAttribute('data-project'), media);
-        });
-      });
-      qvClose.addEventListener('click', closeQuickView);
-      qvOverlay.addEventListener('click', function(e){ if (e.target === qvOverlay) closeQuickView(); });
-      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && qvOverlay.classList.contains('open')) closeQuickView(); });
-    }
-  } catch (err) {}
-
-  // Scroll reveal — progressive enhancement: JS arms the elements, then reveals them.
-  // If this code never runs (script error/blocked), elements were never hidden — always safe.
-  try {
-    if (!prefersReduced) {
-      var revealEls = document.querySelectorAll('.reveal');
-      revealEls.forEach(function(el){ el.classList.add('reveal-init'); });
-      var revealObserver = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-      revealEls.forEach(function(el){ revealObserver.observe(el); });
-    }
-  } catch (err) { /* reveal is purely decorative — never let it block the page */ }
-
-  // Subtle 3D tilt on project cards (desktop pointer only)
-  try {
-    if (!prefersReduced && !isTouch) {
-      document.querySelectorAll('.card:not(.more)').forEach(function(card){
-        card.addEventListener('mousemove', function(e){
-          var rect = card.getBoundingClientRect();
-          var px = (e.clientX - rect.left) / rect.width - 0.5;
-          var py = (e.clientY - rect.top) / rect.height - 0.5;
-          var rotateY = px * 8;
-          var rotateX = -py * 8;
-          card.style.transform = 'translateY(-4px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
-        });
-        card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
-      });
-    }
-  } catch (err) {}
-</script>
-
-
+<script src="js/main.js"></script>
 </body>
 </html>
